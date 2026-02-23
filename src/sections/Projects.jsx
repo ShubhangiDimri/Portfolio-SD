@@ -3,34 +3,84 @@ import ProjectCard from '../components/ProjectCard'
 
 const projects = [
     {
-        name: 'News Summarizer',
-        category: 'Full-Stack Web App',
-        technologies: ['Node.js', 'EJS', 'React'],
-        description: 'A full-stack news platform with real-time summarization and a responsive interface.',
+        name: 'Marine Insights',
+        category: 'Full-Stack AI App',
+        technologies: ['Python', 'HuggingFace', 'React'],
+        description: 'AI-powered marine data analysis platform with real-time insights and predictive models for ocean conservation.',
         github: 'https://github.com/ShubhangiDimri',
         gradient: 'from-blue-600/20 to-blue-400/20',
         border: 'hover:border-blue-500/30',
         number: '01',
     },
     {
-        name: 'Notes Taking App',
+        name: 'Career Services Portal',
         category: 'MERN Stack',
-        technologies: ['Node.js', 'Express', 'Tailwind', 'MongoDB'],
-        description: 'Full-stack notes application with secure authentication and full CRUD operations.',
+        technologies: ['Node.js', 'MongoDB', 'React', 'Express'],
+        description: 'Full-stack internship portal connecting students with career opportunities, featuring job matching and application tracking.',
         github: 'https://github.com/ShubhangiDimri',
         gradient: 'from-blue-500/20 to-blue-400/20',
         border: 'hover:border-blue-500/30',
         number: '02',
     },
     {
-        name: 'Product Review System',
-        category: 'React Web App',
-        technologies: ['React', 'Vue', 'CSS'],
-        description: 'Responsive product review platform with interactive rating and like-based sorting.',
+        name: 'Flight Management System',
+        category: 'Full-Stack Application',
+        technologies: ['Java', 'MySQL', 'React'],
+        description: 'Comprehensive flight booking and management system with real-time availability, seat selection, and booking management.',
         github: 'https://github.com/ShubhangiDimri',
         gradient: 'from-blue-400/15 to-blue-600/20',
         border: 'hover:border-blue-500/30',
         number: '03',
+    },
+    {
+        name: 'Women Community Hall',
+        category: 'Web Application',
+        technologies: ['React', 'Tailwind', 'Node.js'],
+        description: 'Community platform for women empowerment featuring event management, networking, and resource sharing.',
+        github: 'https://github.com/ShubhangiDimri',
+        gradient: 'from-blue-500/15 to-blue-400/20',
+        border: 'hover:border-blue-500/30',
+        number: '04',
+    },
+    {
+        name: 'News-Bite',
+        category: 'Full-Stack Web App',
+        technologies: ['Node.js', 'React', 'API'],
+        description: 'Real-time news aggregation platform with AI-powered summarization and personalized content recommendations.',
+        github: 'https://github.com/ShubhangiDimri',
+        gradient: 'from-blue-600/20 to-blue-500/20',
+        border: 'hover:border-blue-500/30',
+        number: '05',
+    },
+    {
+        name: 'Digital Transaction Risk Analysis',
+        category: 'AI/ML Application',
+        technologies: ['Python', 'Machine Learning', 'React'],
+        description: 'Intelligent fraud detection system using machine learning algorithms to analyze and flag suspicious digital transactions.',
+        github: 'https://github.com/ShubhangiDimri',
+        gradient: 'from-blue-500/20 to-blue-600/15',
+        border: 'hover:border-blue-500/30',
+        number: '06',
+    },
+    {
+        name: 'Intelligent Queue Management',
+        category: 'Smart System',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        description: 'Smart queue management system with real-time tracking, predictive wait times, and automated notifications.',
+        github: 'https://github.com/ShubhangiDimri',
+        gradient: 'from-blue-400/20 to-blue-500/15',
+        border: 'hover:border-blue-500/30',
+        number: '07',
+    },
+    {
+        name: 'Automated Knowledge Graph Pipeline',
+        category: 'AI/ML System',
+        technologies: ['Python', 'NLP', 'Graph Database'],
+        description: 'Automated pipeline for building knowledge graphs from unstructured data using NLP and entity extraction techniques.',
+        github: 'https://github.com/ShubhangiDimri',
+        gradient: 'from-blue-500/20 to-blue-400/20',
+        border: 'hover:border-blue-500/30',
+        number: '08',
     },
 ]
 
@@ -57,7 +107,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                     {projects.map((project, i) => (
                         <ProjectCard key={project.name} project={project} index={i} />
                     ))}
