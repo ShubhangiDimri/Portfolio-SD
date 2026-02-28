@@ -6,7 +6,7 @@ export default function ScrollProgress() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollTop = window.pageYOffset
+            const scrollTop = window.scrollY
             const docHeight = document.documentElement.scrollHeight - window.innerHeight
             const scrollPercent = (scrollTop / docHeight) * 100
             setScrollProgress(scrollPercent)

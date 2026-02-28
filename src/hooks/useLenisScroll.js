@@ -1,7 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import Lenis from 'lenis'
 
 export default function useLenisScroll() {
+    const rafIdRef = useRef(null)
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -17,12 +19,15 @@ export default function useLenisScroll() {
 
         const raf = (time) => {
             lenis.raf(time)
-            requestAnimationFrame(raf)
+            rafIdRef.current = requestAnimationFrame(raf)
         }
 
-        requestAnimationFrame(raf)
+        rafIdRef.current = requestAnimationFrame(raf)
 
         return () => {
+            if (rafIdRef.current) {
+                cancelAnimationFrame(rafIdRef.current)
+            }
             window.__lenis = null
             lenis.destroy()
         }

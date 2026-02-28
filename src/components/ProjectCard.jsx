@@ -21,33 +21,20 @@ export default function ProjectCard({ project, index }) {
             data-cursor="magnify"
             className="relative group project-card"
         >
-            {/* Animated border glow - orange on hover */}
-            <motion.div
-                className="absolute -inset-0.5 bg-gradient-to-r from-[#FF6B00] via-[#FF8C32] to-[#FF6B00] rounded-[24px] blur-sm"
-                animate={{
-                    opacity: isHovered ? 0.5 : 0,
-                }}
-                transition={{ duration: 0.3 }}
-            />
-
             {/* Glassmorphism Card */}
             <motion.div
                 whileHover={{ 
                     y: -10, 
                     scale: 1.01,
-                    boxShadow: "0 20px 40px rgba(255, 107, 0, 0.15)"
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                style={{
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    backdropFilter: 'blur(10px)',
-                    WebkitBackdropFilter: 'blur(10px)',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(255, 107, 0, 0.2)',
-                }}
                 className="relative overflow-hidden flex flex-col h-full p-5 sm:p-6
+                    bg-white/5 backdrop-blur-md rounded-[24px] border border-white/10
+                    shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]
                     transition-all duration-300
-                    hover:border-[#FF6B00]/40 hover:shadow-[0_0_40px_rgba(255,107,0,0.15)]"
+                    hover:shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),_0_0_30px_rgba(251,146,60,0.2)]"
             >
                 {/* Subtle gradient overlay on hover */}
                 <motion.div
@@ -156,12 +143,9 @@ export default function ProjectCard({ project, index }) {
                                         duration: 0.3,
                                         delay: isHovered ? ti * 0.05 : 0,
                                     }}
-                                    style={{
-                                        background: 'rgba(255, 255, 255, 0.05)',
-                                        backdropFilter: 'blur(8px)',
-                                        borderRadius: '12px',
-                                    }}
-                                    className="px-3 py-1.5 text-xs font-medium text-zinc-100 border border-[#FF6B00]/25 shadow-lg"
+                                    className="px-3 py-1.5 text-xs font-medium text-zinc-100 
+                                        bg-white/5 backdrop-blur-md rounded-xl border border-white/10
+                                        shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] shadow-lg"
                                 >
                                     {tech}
                                 </motion.span>

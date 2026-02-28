@@ -34,7 +34,7 @@ export default function Contact() {
             icon: '💼',
             label: 'LinkedIn',
             value: 'Connect with me',
-            href: 'https://linkedin.com',
+            href: 'https://linkedin.com/in/shubhangidimri',
         },
     ]
 

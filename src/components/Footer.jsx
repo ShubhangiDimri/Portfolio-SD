@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 export default function Footer() {
     const socials = [
         { label: 'GitHub', href: 'https://github.com/ShubhangiDimri' },
-        { label: 'LinkedIn', href: 'https://linkedin.com' },
-        { label: 'LeetCode', href: 'https://leetcode.com' },
+        { label: 'LinkedIn', href: 'https://linkedin.com/in/shubhangidimri' },
+        { label: 'LeetCode', href: 'https://leetcode.com/u/shubhangidimri' },
     ]
 
     return (
@@ -17,9 +17,8 @@ export default function Footer() {
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        className="text-xl font-bold text-gradient"
+                        className="text-xl font-bold text-gradient font-Outfit tracking-wide"
                     >
-                        
                     </motion.a>
 
                     {/* Links */}
@@ -56,6 +55,6 @@ export default function Footer() {
                     </motion.p>
                 </div>
             </div>
-        </footer>
+        </footer >
     )
 }

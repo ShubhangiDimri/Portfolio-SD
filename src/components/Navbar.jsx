@@ -39,7 +39,7 @@ export default function Navbar() {
 
             // Determine which section is most visible (accounting for navbar offset)
             const viewportMiddle = window.innerHeight / 3 // Use top third for better UX
-            const current = sections.find(section => 
+            const current = sections.find(section =>
                 section.top <= viewportMiddle && section.bottom >= viewportMiddle
             )
 
@@ -72,42 +72,22 @@ export default function Navbar() {
                 initial={{ y: -80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-                    scrolled
-                        ? 'glass-strong shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
-                        : 'bg-transparent'
-                }`}
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+                    ? 'glass-strong shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
+                    : 'bg-transparent'
+                    }`}
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-3 sm:py-4 flex items-center justify-between">
                     {/* Logo */}
-                    <a href="#top">
-                        <span className="text-xl font-bold text-gradient font-Ovo tracking-wide">
-                            
+                    <a href="#top" onClick={(e) => handleNavClick(e, '#top')}>
+                        <span className="text-xl font-bold text-gradient font-Outfit tracking-wide">
+
                         </span>
                     </a>
 
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center gap-8 relative">
-                        {/* Moving active indicator background */}
-                        <motion.div
-                            className="absolute top-1/2 -translate-y-1/2 bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-xl"
-                            animate={{
-                                x: navLinks.findIndex(link => link.href === activeSection) * 112, // Approximate spacing
-                                opacity: activeSection ? 1 : 0
-                            }}
-                            transition={{ 
-                                type: 'spring', 
-                                stiffness: 300, 
-                                damping: 30,
-                                duration: 0.6
-                            }}
-                            style={{
-                                width: '80px',
-                                height: '32px',
-                                zIndex: 0
-                            }}
-                        />
-                        
+
                         {navLinks.map((link, i) => (
                             <motion.div
                                 key={link.label}
@@ -122,23 +102,22 @@ export default function Navbar() {
                                     href={link.href}
                                     onClick={(e) => handleNavClick(e, link.href)}
                                     data-cursor="click"
-                                    className={`text-sm transition-all duration-200 relative group px-4 py-2 block ${
-                                        activeSection === link.href 
-                                            ? 'text-[#FF6B00] font-medium' 
-                                            : 'text-zinc-400 hover:text-zinc-100'
-                                    }`}
+                                    className={`text-sm transition-all duration-200 relative group px-4 py-2 block ${activeSection === link.href
+                                        ? 'text-[#FF6B00] font-medium'
+                                        : 'text-zinc-400 hover:text-zinc-100'
+                                        }`}
                                 >
                                     {link.label}
-                                    
+
                                     {/* Enhanced sliding underline */}
-                                    <motion.span 
+                                    <motion.span
                                         className="absolute -bottom-0.5 left-0 h-0.5 bg-gradient-to-r from-[#FF6B00] via-[#FF8C32] to-[#FF6B00]"
                                         initial={{ scaleX: 0, originX: 0.5 }}
                                         animate={{
                                             scaleX: hoveredLink === link.href || activeSection === link.href ? 1 : 0,
                                             originX: hoveredLink === link.href ? 0 : 0.5
                                         }}
-                                        transition={{ 
+                                        transition={{
                                             type: 'spring',
                                             stiffness: 300,
                                             damping: 25,
@@ -175,17 +154,17 @@ export default function Navbar() {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <motion.span 
+                        <motion.span
                             className="block w-6 h-0.5 bg-white origin-center"
                             animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                         />
-                        <motion.span 
+                        <motion.span
                             className="block w-6 h-0.5 bg-white"
                             animate={menuOpen ? { opacity: 0, x: -10 } : { opacity: 1, x: 0 }}
                             transition={{ duration: 0.2 }}
                         />
-                        <motion.span 
+                        <motion.span
                             className="block w-6 h-0.5 bg-white origin-center"
                             animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
                             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
@@ -211,7 +190,7 @@ export default function Navbar() {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: 20 }}
-                                transition={{ 
+                                transition={{
                                     delay: i * 0.05,
                                     type: 'spring',
                                     stiffness: 300,
@@ -219,15 +198,13 @@ export default function Navbar() {
                                 }}
                                 onClick={(e) => handleNavClick(e, link.href)}
                                 data-cursor="click"
-                                className={`text-lg py-3 border-b border-white/5 transition-all duration-200 relative ${
-                                    activeSection === link.href 
-                                        ? 'text-[#FF6B00] translate-x-2' 
-                                        : 'text-gray-300 hover:text-white hover:translate-x-2'
-                                }`}
+                                className={`text-lg py-3 border-b border-white/5 transition-all duration-200 relative ${activeSection === link.href
+                                    ? 'text-[#FF6B00] translate-x-2'
+                                    : 'text-gray-300 hover:text-white hover:translate-x-2'
+                                    }`}
                             >
-                                <span className={`text-sm font-mono mr-2 transition-colors ${
-                                    activeSection === link.href ? 'text-[#FF6B00]' : 'text-gray-500'
-                                }`}>
+                                <span className={`text-sm font-mono mr-2 transition-colors ${activeSection === link.href ? 'text-[#FF6B00]' : 'text-gray-500'
+                                    }`}>
                                     0{i + 1}.
                                 </span>
                                 {link.label}

@@ -30,6 +30,40 @@ const rightSide = {
     },
 }
 
+// SVG stat icons with orange glow
+const StatIcon = ({ type }) => {
+    const icons = {
+        rocket: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z" />
+                <path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 3 0 3 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-3 0-3" />
+            </svg>
+        ),
+        bolt: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+        ),
+        trophy: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path d="M6 9H4.5a2.5 2.5 0 010-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 000-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0012 0V2z" />
+            </svg>
+        ),
+    }
+    return (
+        <div className="text-[#FF6B00] drop-shadow-[0_0_8px_rgba(255,107,0,0.5)]">
+            {icons[type]}
+        </div>
+    )
+}
+
 export default function Hero() {
     return (
         <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden px-6">
@@ -58,9 +92,9 @@ export default function Hero() {
                         'radial-gradient(ellipse 120% 80% at 20% 30%, rgba(249, 115, 22, 0.6) 0%, rgba(251, 146, 60, 0.3) 35%, transparent 70%)'
                     ]
                 }}
-                transition={{ 
-                    duration: 15, 
-                    repeat: Infinity, 
+                transition={{
+                    duration: 15,
+                    repeat: Infinity,
                     ease: 'linear'
                 }}
             />
@@ -79,13 +113,25 @@ export default function Hero() {
                         viewport={{ once: true }}
                         className="space-y-6 lg:space-y-8"
                     >
-                        {/* Badge */}
+                        {/* Dark Glass Pill Badge — System Status */}
                         <motion.div
                             variants={leftItem}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl glass-badge text-sm text-zinc-200 font-mono"
+                            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full
+                                bg-zinc-900/80 backdrop-blur-md
+                                border border-zinc-800/60
+                                shadow-[0_2px_16px_rgba(0,0,0,0.3)]"
                         >
-                            <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B00] animate-pulse shadow-[0_0_12px_rgba(255,107,0,0.6)]" />
-                            Available for opportunities
+                            {/* Pulsing green LED dot */}
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500 shadow-[0_0_6px_rgba(34,197,94,0.8)]" />
+                            </span>
+                            <span
+                                className="text-[11px] text-zinc-300 uppercase tracking-[0.2em]"
+                                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                            >
+                                Available
+                            </span>
                         </motion.div>
 
                         {/* Name */}
@@ -99,11 +145,11 @@ export default function Hero() {
                             </h1>
                         </motion.div>
 
-                        {/* Role */}
-                        <motion.h2 variants={leftItem} className="text-xl sm:text-2xl lg:text-3xl text-zinc-400 font-light">
+                        {/* Role — brightened to text-zinc-300 */}
+                        <motion.h2 variants={leftItem} className="text-xl sm:text-2xl lg:text-3xl text-zinc-300 font-semibold">
                             Full Stack{' '}
-                            <span className="text-gradient-cyan font-semibold">AI Engineer</span>
-                            {' '}from UPES
+                            <span className="text-gradient-cyan font-semibold">AI</span>
+                            {' '}Engineer from UPES
                         </motion.h2>
 
                         {/* Description */}
@@ -111,16 +157,18 @@ export default function Hero() {
                             Building scalable full-stack applications and AI-driven solutions with a passion for clean code and great user experiences.
                         </motion.p>
 
-                        {/* CTA Buttons */}
+                        {/* CTA Buttons — Ghost secondary button */}
                         <motion.div
                             variants={leftItem}
                             className="flex flex-col sm:flex-row items-start gap-4"
                         >
+                            {/* Primary CTA */}
                             <motion.a
                                 href="#contact"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.97 }}
                                 data-cursor="click"
+                                data-magnetic
                                 className="group px-8 py-3.5 rounded-2xl font-semibold text-white btn-liquid-glass
                                     shadow-lg shadow-[#FF6B00]/20
                                     flex items-center gap-2"
@@ -130,41 +178,49 @@ export default function Hero() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </motion.a>
+
+                            {/* Ghost Button — secondary */}
                             <motion.a
                                 href="#work"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.97 }}
                                 data-cursor="click"
-                                className="px-8 py-3.5 rounded-2xl font-semibold text-zinc-300 btn-hover
-                                    bg-zinc-900/60 backdrop-blur-md border border-zinc-700/40
-                                    hover:bg-zinc-800/70 hover:border-zinc-600 hover:text-white
-                                    transition-all duration-200"
+                                data-magnetic
+                                className="px-8 py-3.5 rounded-2xl font-semibold text-zinc-400
+                                    bg-transparent border border-zinc-800
+                                    hover:border-orange-500 hover:text-zinc-100
+                                    transition-all duration-300"
                             >
                                 View My Work
                             </motion.a>
                         </motion.div>
 
-                        {/* Bento Grid Stats */}
+                        {/* Horizontal Bento Glass Stats Container */}
                         <motion.div
                             variants={leftItem}
-                            className="bento-grid grid-cols-3 pt-8"
+                            className="bg-white/[0.04] backdrop-blur-lg border border-white/[0.08] rounded-2xl p-5 mt-8
+                                shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
                         >
-                            {[
-                                { value: '3+', label: 'Projects Built', icon: '🚀' },
-                                { value: '4+', label: 'Technologies', icon: '⚡' },
-                                { value: '8.6', label: 'CGPA at UPES', icon: '🎓' },
-                            ].map((stat, index) => (
-                                <motion.div
-                                    key={stat.label}
-                                    whileHover={{ scale: 1.05, y: -4 }}
-                                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                                    className="bento-item p-5 text-center cursor-default"
-                                >
-                                    <span className="text-2xl mb-2 block">{stat.icon}</span>
-                                    <div className="text-2xl sm:text-3xl font-bold text-gradient">{stat.value}</div>
-                                    <div className="text-xs text-zinc-500 mt-1.5 font-mono leading-tight">{stat.label}</div>
-                                </motion.div>
-                            ))}
+                            <div className="flex items-center justify-between sm:justify-start sm:gap-0 divide-x divide-zinc-700/50">
+                                {[
+                                    { value: '3+', label: 'Projects Built', icon: 'rocket' },
+                                    { value: '4+', label: 'Technologies', icon: 'bolt' },
+                                    { value: '8.6', label: 'CGPA at UPES', icon: 'trophy' },
+                                ].map((stat) => (
+                                    <motion.div
+                                        key={stat.label}
+                                        whileHover={{ scale: 1.03, y: -1 }}
+                                        transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                                        className="flex items-center gap-3 cursor-default flex-1 justify-center px-4 first:pl-0 last:pr-0"
+                                    >
+                                        <StatIcon type={stat.icon} />
+                                        <div className="flex flex-col">
+                                            <span className="text-2xl sm:text-3xl font-bold text-gradient leading-none">{stat.value}</span>
+                                            <span className="text-[10px] text-zinc-500 mt-0.5 font-mono leading-tight uppercase tracking-wider">{stat.label}</span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </motion.div>
                     </motion.div>
 
@@ -177,17 +233,18 @@ export default function Hero() {
                         className="flex items-center justify-center lg:justify-end"
                     >
                         <div className="relative">
-                            {/* Soft blue glow behind image */}
-                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(249,115,22,0.12),_transparent_60%)] blur-2xl scale-110" />
-                            
+                            {/* Enhanced orange glow behind image */}
+                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(255,107,0,0.15),_transparent_60%)] blur-3xl scale-125" />
+                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(255,107,0,0.08),_transparent_70%)] blur-2xl scale-110" />
+
                             {/* Floating portrait container */}
                             <motion.div
-                                animate={{ 
+                                animate={{
                                     y: [0, -12, 0],
                                 }}
-                                transition={{ 
-                                    duration: 4, 
-                                    repeat: Infinity, 
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
                                     ease: 'easeInOut'
                                 }}
                                 whileHover={{ scale: 1.03 }}
