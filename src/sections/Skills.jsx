@@ -8,16 +8,14 @@ const services = [
         description: 'End-to-end web applications using React, Node.js, Express, and modern databases like MongoDB & MySQL.',
         tags: ['React', 'Node.js', 'REST APIs'],
         gradient: 'from-orange-600 to-orange-400',
-        // Detailed data for drawer
         details: {
-            expertise: [
-                { skill: 'React/Next.js', level: 95, projects: 12 },
-                { skill: 'Node.js/Express', level: 90, projects: 10 },
-                { skill: 'REST API Design', level: 92, projects: 14 },
-                { skill: 'TypeScript', level: 85, projects: 8 },
+            highlights: [
+                'Built career portal with authentication, role-based access, and job matching',
+                'Developed real-time news aggregation platform with API integrations',
+                'Created responsive SPAs with modern component architecture',
             ],
-            deliverables: ['SPA/PWA Development', 'API Architecture', 'Authentication Systems', 'Real-time Features'],
-            timeline: '2-8 weeks',
+            tools: ['React', 'Node.js', 'Express', 'MongoDB', 'MySQL', 'Tailwind CSS', 'ShadCN/UI'],
+            projects: ['Career Services Portal', 'News-Bite', 'Flight Management System'],
         },
     },
     {
@@ -27,31 +25,29 @@ const services = [
         tags: ['Python', 'HuggingFace', 'ML APIs'],
         gradient: 'from-orange-500 to-orange-400',
         details: {
-            expertise: [
-                { skill: 'HuggingFace', level: 88, projects: 6 },
-                { skill: 'Python/FastAPI', level: 90, projects: 8 },
-                { skill: 'NLP Pipelines', level: 85, projects: 5 },
-                { skill: 'Model Fine-tuning', level: 78, projects: 3 },
+            highlights: [
+                'Built marine data analysis platform with AI-powered insights',
+                'Developed fraud detection system using ML algorithms',
+                'Created automated knowledge graph pipeline from unstructured data',
             ],
-            deliverables: ['Chatbot Integration', 'Sentiment Analysis', 'Text Generation', 'Knowledge Graphs'],
-            timeline: '3-10 weeks',
+            tools: ['Python', 'HuggingFace', 'Scikit-learn', 'NLP', 'Graph Databases', 'FastAPI'],
+            projects: ['Marine Insights', 'Digital Transaction Risk Analysis', 'Knowledge Graph Pipeline'],
         },
     },
     {
         icon: '🎨',
         name: 'UI / UX Design',
         description: 'Crafting clean, responsive and accessible interfaces using Tailwind CSS and ShadCN/UI component systems.',
-        tags: ['Tailwind', 'ShadCN', 'Figma'],
+        tags: ['Tailwind', 'ShadCN', 'Framer Motion'],
         gradient: 'from-orange-500 to-orange-700',
         details: {
-            expertise: [
-                { skill: 'Tailwind CSS', level: 95, projects: 15 },
-                { skill: 'Framer Motion', level: 88, projects: 10 },
-                { skill: 'Figma/Design', level: 82, projects: 8 },
-                { skill: 'Accessibility', level: 85, projects: 12 },
+            highlights: [
+                'Designed glassmorphism-based portfolio with micro-animations',
+                'Built responsive layouts adapting seamlessly across devices',
+                'Implemented smooth scroll, custom cursors, and hover interactions',
             ],
-            deliverables: ['Design Systems', 'Component Libraries', 'Responsive Layouts', 'Micro-interactions'],
-            timeline: '1-4 weeks',
+            tools: ['Tailwind CSS', 'Framer Motion', 'ShadCN/UI', 'CSS Animations', 'Figma'],
+            projects: ['This Portfolio', 'Women Community Hall', 'News-Bite'],
         },
     },
     {
@@ -61,14 +57,13 @@ const services = [
         tags: ['MongoDB', 'MySQL', 'Schema Design'],
         gradient: 'from-orange-400 to-orange-600',
         details: {
-            expertise: [
-                { skill: 'MongoDB', level: 90, projects: 10 },
-                { skill: 'MySQL/PostgreSQL', level: 88, projects: 8 },
-                { skill: 'Query Optimization', level: 85, projects: 12 },
-                { skill: 'Data Modeling', level: 87, projects: 9 },
+            highlights: [
+                'Designed relational schemas for flight booking and queue management',
+                'Built NoSQL document models for flexible content management',
+                'Implemented data pipelines for AI feature extraction',
             ],
-            deliverables: ['Schema Design', 'Migration Scripts', 'Performance Tuning', 'Backup Strategies'],
-            timeline: '1-3 weeks',
+            tools: ['MongoDB', 'MySQL', 'Mongoose', 'Sequelize', 'Redis'],
+            projects: ['Flight Management System', 'Intelligent Queue Management', 'Career Services Portal'],
         },
     },
 ]
@@ -114,7 +109,7 @@ function ServiceCard({ service, index, isExpanded, onToggle }) {
                     <motion.div
                         animate={{ rotate: isExpanded ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-8 h-8 rounded-lg bg-zinc-700/50 flex items-center justify-center shrink-0"
+                        className="w-8 h-8 rounded-lg bg-zinc-700/50 flex items-center justify-center shrink-0 mt-1"
                     >
                         <svg className="w-4 h-4 text-[#FF6B00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -146,57 +141,56 @@ function ServiceCard({ service, index, isExpanded, onToggle }) {
                         className="overflow-hidden"
                     >
                         <div className="mt-2 p-5 bg-zinc-900/80 backdrop-blur-md rounded-2xl border border-zinc-700/30">
-                            {/* Skills Table */}
+                            {/* What I've Done */}
                             <div className="mb-5">
                                 <h4 className="text-xs font-mono text-[#FF6B00] uppercase tracking-widest mb-3">
-                                    Expertise Matrix
+                                    What I&apos;ve Built
                                 </h4>
-                                <div className="space-y-2.5">
-                                    {service.details.expertise.map((item) => (
-                                        <div key={item.skill} className="flex items-center gap-3">
-                                            <span className="text-sm text-zinc-300 w-32 shrink-0 font-medium">
-                                                {item.skill}
-                                            </span>
-                                            <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
-                                                <motion.div
-                                                    initial={{ width: 0 }}
-                                                    animate={{ width: `${item.level}%` }}
-                                                    transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-                                                    className="h-full bg-gradient-to-r from-[#FF6B00] to-[#FF8C32] rounded-full"
-                                                />
-                                            </div>
-                                            <span className="text-xs font-mono text-zinc-500 w-12 text-right">
-                                                {item.level}%
-                                            </span>
-                                            <span className="text-xs text-zinc-600 w-20 text-right">
-                                                {item.projects} projects
-                                            </span>
-                                        </div>
+                                <ul className="space-y-2">
+                                    {service.details.highlights.map((item, i) => (
+                                        <motion.li
+                                            key={i}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: i * 0.08 }}
+                                            className="text-sm text-zinc-400 flex items-start gap-2.5 leading-relaxed"
+                                        >
+                                            <span className="text-[#FF6B00] mt-1 shrink-0">▹</span>
+                                            {item}
+                                        </motion.li>
                                     ))}
-                                </div>
+                                </ul>
                             </div>
 
-                            {/* Deliverables & Timeline */}
+                            {/* Tools & Related Projects */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-zinc-700/30">
                                 <div>
-                                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">
-                                        Deliverables
+                                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2.5">
+                                        Tools & Tech
                                     </h4>
-                                    <ul className="space-y-1">
-                                        {service.details.deliverables.map((item) => (
-                                            <li key={item} className="text-sm text-zinc-400 flex items-center gap-2">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
-                                                {item}
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {service.details.tools.map((tool) => (
+                                            <span
+                                                key={tool}
+                                                className="px-2 py-1 rounded-md text-xs text-zinc-300 bg-zinc-800/70 border border-zinc-700/40"
+                                            >
+                                                {tool}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2.5">
+                                        Related Projects
+                                    </h4>
+                                    <ul className="space-y-1.5">
+                                        {service.details.projects.map((proj) => (
+                                            <li key={proj} className="text-sm text-zinc-400 flex items-center gap-2">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] shrink-0" />
+                                                {proj}
                                             </li>
                                         ))}
                                     </ul>
-                                </div>
-                                <div>
-                                    <h4 className="text-xs font-mono text-zinc-500 uppercase tracking-widest mb-2">
-                                        Typical Timeline
-                                    </h4>
-                                    <p className="text-2xl font-bold text-zinc-100">{service.details.timeline}</p>
-                                    <p className="text-xs text-zinc-500 mt-1">Based on scope complexity</p>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +225,7 @@ export default function Skills() {
                     <div className="glow-line" />
                     <h2 className="text-4xl sm:text-5xl font-bold text-zinc-100">My Services</h2>
                     <p className="mt-4 text-zinc-500 max-w-xl mx-auto">
-                        Click any service to explore detailed expertise, deliverables, and timelines.
+                        Click any service to explore what I&apos;ve built and the tools I work with.
                     </p>
                 </motion.div>
 

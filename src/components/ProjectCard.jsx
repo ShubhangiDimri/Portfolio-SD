@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export default function ProjectCard({ project, index }) {
@@ -9,12 +9,12 @@ export default function ProjectCard({ project, index }) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ 
-                duration: 0.4, 
-                delay: index * 0.08, 
-                type: 'spring', 
-                stiffness: 280, 
-                damping: 20 
+            transition={{
+                duration: 0.4,
+                delay: index * 0.08,
+                type: 'spring',
+                stiffness: 280,
+                damping: 20
             }}
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
@@ -23,8 +23,8 @@ export default function ProjectCard({ project, index }) {
         >
             {/* Glassmorphism Card */}
             <motion.div
-                whileHover={{ 
-                    y: -10, 
+                whileHover={{
+                    y: -10,
                     scale: 1.01,
                     backdropFilter: "blur(16px)",
                     WebkitBackdropFilter: "blur(16px)",
@@ -60,7 +60,7 @@ export default function ProjectCard({ project, index }) {
 
                 {/* Content */}
                 <div className="relative z-10 flex-1 flex flex-col mt-2">
-                    <motion.p 
+                    <motion.p
                         className="text-xs font-mono uppercase tracking-widest mb-1.5"
                         animate={{
                             color: isHovered ? '#fb923c' : '#F97316',
@@ -69,11 +69,11 @@ export default function ProjectCard({ project, index }) {
                     >
                         {project.category}
                     </motion.p>
-                    
-                    <motion.h3 
+
+                    <motion.h3
                         className="text-lg font-bold mb-3 text-white"
                         animate={{
-                            background: isHovered 
+                            background: isHovered
                                 ? 'linear-gradient(to right, #fb923c, #fdba74, #fb923c)'
                                 : 'transparent',
                             backgroundClip: isHovered ? 'text' : 'border-box',
@@ -85,8 +85,8 @@ export default function ProjectCard({ project, index }) {
                     >
                         {project.name}
                     </motion.h3>
-                    
-                    <motion.p 
+
+                    <motion.p
                         className="text-sm text-zinc-400 leading-relaxed flex-1 mb-5"
                         animate={{
                             opacity: isHovered ? 1.0 : 0.6,
@@ -95,6 +95,43 @@ export default function ProjectCard({ project, index }) {
                     >
                         {project.description}
                     </motion.p>
+
+                    {/* Tech Stack — slides in on hover, inline in flow so no overlap */}
+                    <AnimatePresence>
+                        {isHovered && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                                className="overflow-hidden"
+                            >
+                                <div className="mb-4">
+                                    <p className="text-xs font-mono text-[#FF6B00] uppercase tracking-widest mb-2">
+                                        Tech Stack
+                                    </p>
+                                    <div className="flex flex-wrap gap-2">
+                                        {project.technologies.map((tech, ti) => (
+                                            <motion.span
+                                                key={tech}
+                                                initial={{ opacity: 0, scale: 0.8, y: 8 }}
+                                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                transition={{
+                                                    duration: 0.25,
+                                                    delay: ti * 0.04,
+                                                }}
+                                                className="px-3 py-1.5 text-xs font-medium text-zinc-100 
+                                                    bg-white/5 backdrop-blur-md rounded-xl border border-white/10
+                                                    shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                                            >
+                                                {tech}
+                                            </motion.span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
                     {/* GitHub Link */}
                     <div className="flex items-center gap-4 pt-4 border-t border-white/5">
@@ -114,45 +151,6 @@ export default function ProjectCard({ project, index }) {
                         </a>
                     </div>
                 </div>
-
-                {/* Hover Overlay with Tech Stack */}
-                <motion.div
-                    className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/95 via-[#0a0a0c]/70 to-transparent flex items-end pointer-events-none rounded-[24px] p-5 sm:p-6"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                        opacity: isHovered ? 1 : 0,
-                        y: isHovered ? 0 : 20,
-                    }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                >
-                    <div className="w-full">
-                        <p className="text-xs font-mono text-[#FF6B00] uppercase tracking-widest mb-3">
-                            Tech Stack
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            {project.technologies.map((tech, ti) => (
-                                <motion.span
-                                    key={tech}
-                                    initial={{ opacity: 0, scale: 0.8, y: 10 }}
-                                    animate={{
-                                        opacity: isHovered ? 1 : 0,
-                                        scale: isHovered ? 1 : 0.8,
-                                        y: isHovered ? 0 : 10,
-                                    }}
-                                    transition={{ 
-                                        duration: 0.3,
-                                        delay: isHovered ? ti * 0.05 : 0,
-                                    }}
-                                    className="px-3 py-1.5 text-xs font-medium text-zinc-100 
-                                        bg-white/5 backdrop-blur-md rounded-xl border border-white/10
-                                        shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] shadow-lg"
-                                >
-                                    {tech}
-                                </motion.span>
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
             </motion.div>
         </motion.div>
     )
