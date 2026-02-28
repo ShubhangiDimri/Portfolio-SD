@@ -74,7 +74,7 @@ export default function Navbar() {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                     scrolled
-                        ? 'bg-white/10 backdrop-blur-md border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+                        ? 'bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
                         : 'bg-transparent'
                 }`}
             >
@@ -82,7 +82,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <a href="#top">
                         <span className="text-xl font-bold text-gradient font-Ovo tracking-wide">
-                            SD<span className="text-white/30">.</span>
+                            
                         </span>
                     </a>
 
@@ -90,7 +90,7 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8 relative">
                         {/* Moving active indicator background */}
                         <motion.div
-                            className="absolute top-1/2 -translate-y-1/2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
+                            className="absolute top-1/2 -translate-y-1/2 bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-xl"
                             animate={{
                                 x: navLinks.findIndex(link => link.href === activeSection) * 112, // Approximate spacing
                                 opacity: activeSection ? 1 : 0
@@ -123,15 +123,15 @@ export default function Navbar() {
                                     onClick={(e) => handleNavClick(e, link.href)}
                                     className={`text-sm transition-all duration-200 relative group px-4 py-2 block ${
                                         activeSection === link.href 
-                                            ? 'text-blue-400 font-medium' 
-                                            : 'text-gray-400 hover:text-white'
+                                            ? 'text-orange-400 font-medium' 
+                                            : 'text-zinc-400 hover:text-zinc-100'
                                     }`}
                                 >
                                     {link.label}
                                     
                                     {/* Enhanced sliding underline */}
                                     <motion.span 
-                                        className="absolute -bottom-0.5 left-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-400"
+                                        className="absolute -bottom-0.5 left-0 h-0.5 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400"
                                         initial={{ scaleX: 0, originX: 0.5 }}
                                         animate={{
                                             scaleX: hoveredLink === link.href || activeSection === link.href ? 1 : 0,
@@ -159,10 +159,10 @@ export default function Navbar() {
                         transition={{ delay: 0.8 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.97 }}
-                        className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-medium btn-hover btn-gradient-border
-                            bg-white/10 backdrop-blur-md border border-white/20
-                            text-white hover:bg-white/15 hover:border-blue-400/50
-                            hover:shadow-glow-blue transition-all duration-200"
+                        className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-medium btn-hover
+                            bg-zinc-800/80 backdrop-blur-md border border-zinc-700/60
+                            text-zinc-100 hover:bg-zinc-700/80 hover:border-orange-400/50
+                            hover:shadow-glow-orange transition-all duration-200"
                     >
                         Hire Me
                     </motion.a>
@@ -170,7 +170,7 @@ export default function Navbar() {
                     {/* Mobile Hamburger */}
                     <motion.button
                         onClick={() => setMenuOpen(!menuOpen)}
-                        className="md:hidden flex flex-col gap-1.5 p-2 relative z-50 btn-hover rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-blue-400/40 btn-gradient-border"
+                        className="md:hidden flex flex-col gap-1.5 p-2 relative z-50 btn-hover rounded-xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-orange-400/40 btn-gradient-border"
                         aria-label="Toggle menu"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -220,12 +220,12 @@ export default function Navbar() {
                                 onClick={(e) => handleNavClick(e, link.href)}
                                 className={`text-lg py-3 border-b border-white/5 transition-all duration-200 relative ${
                                     activeSection === link.href 
-                                        ? 'text-blue-400 translate-x-2' 
+                                        ? 'text-orange-400 translate-x-2' 
                                         : 'text-gray-300 hover:text-white hover:translate-x-2'
                                 }`}
                             >
                                 <span className={`text-sm font-mono mr-2 transition-colors ${
-                                    activeSection === link.href ? 'text-blue-500' : 'text-gray-500'
+                                    activeSection === link.href ? 'text-orange-500' : 'text-gray-500'
                                 }`}>
                                     0{i + 1}.
                                 </span>
@@ -233,7 +233,7 @@ export default function Navbar() {
                                 {activeSection === link.href && (
                                     <motion.span
                                         layoutId="activeMobile"
-                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-500 rounded-full"
+                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-orange-400 to-orange-500 rounded-full"
                                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                     />
                                 )}

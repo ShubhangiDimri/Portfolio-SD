@@ -8,8 +8,8 @@ const projects = [
         technologies: ['Python', 'HuggingFace', 'React'],
         description: 'AI-powered marine data analysis platform with real-time insights and predictive models for ocean conservation.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-600/20 to-blue-400/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-600/20 to-orange-400/20',
+        border: 'hover:border-orange-500/30',
         number: '01',
     },
     {
@@ -18,8 +18,8 @@ const projects = [
         technologies: ['Node.js', 'MongoDB', 'React', 'Express'],
         description: 'Full-stack internship portal connecting students with career opportunities, featuring job matching and application tracking.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-500/20 to-blue-400/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-500/20 to-orange-400/20',
+        border: 'hover:border-orange-500/30',
         number: '02',
     },
     {
@@ -28,8 +28,8 @@ const projects = [
         technologies: ['Java', 'MySQL', 'React'],
         description: 'Comprehensive flight booking and management system with real-time availability, seat selection, and booking management.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-400/15 to-blue-600/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-400/15 to-orange-600/20',
+        border: 'hover:border-orange-500/30',
         number: '03',
     },
     {
@@ -38,8 +38,8 @@ const projects = [
         technologies: ['React', 'Tailwind', 'Node.js'],
         description: 'Community platform for women empowerment featuring event management, networking, and resource sharing.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-500/15 to-blue-400/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-500/15 to-orange-400/20',
+        border: 'hover:border-orange-500/30',
         number: '04',
     },
     {
@@ -48,8 +48,8 @@ const projects = [
         technologies: ['Node.js', 'React', 'API'],
         description: 'Real-time news aggregation platform with AI-powered summarization and personalized content recommendations.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-600/20 to-blue-500/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-600/20 to-orange-500/20',
+        border: 'hover:border-orange-500/30',
         number: '05',
     },
     {
@@ -58,8 +58,8 @@ const projects = [
         technologies: ['Python', 'Machine Learning', 'React'],
         description: 'Intelligent fraud detection system using machine learning algorithms to analyze and flag suspicious digital transactions.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-500/20 to-blue-600/15',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-500/20 to-orange-600/15',
+        border: 'hover:border-orange-500/30',
         number: '06',
     },
     {
@@ -68,8 +68,8 @@ const projects = [
         technologies: ['React', 'Node.js', 'MongoDB'],
         description: 'Smart queue management system with real-time tracking, predictive wait times, and automated notifications.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-400/20 to-blue-500/15',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-400/20 to-orange-500/15',
+        border: 'hover:border-orange-500/30',
         number: '07',
     },
     {
@@ -78,8 +78,8 @@ const projects = [
         technologies: ['Python', 'NLP', 'Graph Database'],
         description: 'Automated pipeline for building knowledge graphs from unstructured data using NLP and entity extraction techniques.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-blue-500/20 to-blue-400/20',
-        border: 'hover:border-blue-500/30',
+        gradient: 'from-orange-500/20 to-orange-400/20',
+        border: 'hover:border-orange-500/30',
         number: '08',
     },
 ]
@@ -87,7 +87,7 @@ const projects = [
 export default function Projects() {
     return (
         <section id="work" className="relative w-full px-4 sm:px-6 md:px-8 lg:px-[8%] xl:px-[10%] py-16 sm:py-20 md:py-24 scroll-mt-20">
-            <div className="absolute top-0 left-1/2 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 left-1/2 w-96 h-96 bg-zinc-600/8 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
@@ -100,8 +100,8 @@ export default function Projects() {
                 >
                     <p className="section-heading">My Portfolio</p>
                     <div className="glow-line" />
-                    <h2 className="text-4xl sm:text-5xl font-bold text-white">Featured Work</h2>
-                    <p className="mt-4 text-gray-500 max-w-xl mx-auto">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-zinc-100">Featured Work</h2>
+                    <p className="mt-4 text-zinc-500 max-w-xl mx-auto">
                         A collection of projects showcasing my expertise in full-stack development and AI engineering.
                     </p>
                 </motion.div>
@@ -127,7 +127,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.97 }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 text-gray-300 hover:bg-white/10 hover:text-white hover:border-blue-400/40 hover:shadow-glow-blue transition-all duration-200 text-sm font-medium btn-hover btn-gradient-border"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-800/60 backdrop-blur-md border border-zinc-700/50 text-zinc-300 hover:bg-zinc-700/60 hover:text-white hover:border-orange-400/40 hover:shadow-glow-orange transition-all duration-200 text-sm font-medium btn-hover"
                     >
                         View all on GitHub
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

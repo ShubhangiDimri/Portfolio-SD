@@ -27,7 +27,7 @@ export default function App() {
     }, [])
 
     return (
-        <div className="min-h-screen bg-[#030d08] text-gray-100 overflow-x-hidden">
+        <div className="min-h-screen bg-[#0f0f12] text-zinc-100 overflow-x-hidden">
             <CursorGlow />
             <ScrollProgress />
             <Navbar />

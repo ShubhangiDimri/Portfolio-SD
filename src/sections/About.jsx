@@ -44,7 +44,7 @@ export default function About() {
     return (
         <section id="about" className="relative w-full px-4 sm:px-6 md:px-8 lg:px-[8%] xl:px-[10%] py-16 sm:py-20 md:py-24 scroll-mt-20">
             {/* Background glow */}
-            <div className="absolute top-0 right-0 w-72 h-72 bg-blue-600/6 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-72 h-72 bg-zinc-600/8 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-6xl mx-auto">
                 {/* Heading */}
@@ -57,7 +57,7 @@ export default function About() {
                 >
                     <p className="section-heading">Introduction</p>
                     <div className="glow-line" />
-                    <h2 className="text-4xl sm:text-5xl font-bold text-white">About Me</h2>
+                    <h2 className="text-4xl sm:text-5xl font-bold text-zinc-100">About Me</h2>
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-16 items-start">
@@ -69,8 +69,8 @@ export default function About() {
                         transition={{ duration: 0.7 }}
                         className="w-full lg:w-2/5 flex justify-center"
                     >
-                        <div className="relative p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10">
-                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(29,78,216,0.15),_transparent_40%)] -z-10" />
+                    >                        <div className="relative p-4 bg-zinc-800/50 backdrop-blur-sm rounded-2xl border border-zinc-700/50">
+                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(113,113,122,0.15),_transparent_40%)] -z-10" />
                             <img
                                 src="/assets/shubh.jpeg"
                                 alt="Shubhangi"
@@ -86,7 +86,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-gray-400 leading-relaxed text-lg"
+                            className="text-zinc-400 leading-relaxed text-lg"
                         >
                             I&apos;m a Full Stack AI Engineer pursuing B.Tech in Computer Science at UPES, Dehradun. With a strong foundation in modern web technologies, I specialize in building scalable applications and implementing AI-driven solutions.
                         </motion.p>
@@ -102,11 +102,11 @@ export default function About() {
                                     whileInView="visible"
                                     viewport={{ once: true }}
                                     whileHover={{ y: -4, scale: 1.02 }}
-                                    className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-blue-400/40 hover:shadow-glow-blue transition-all duration-200 cursor-default"
+                                    className="bg-zinc-800/50 backdrop-blur-md rounded-2xl p-6 border border-zinc-700/50 hover:border-orange-400/40 hover:shadow-glow-orange transition-all duration-200 cursor-default"
                                 >
                                     <div className="text-2xl mb-3">{item.icon}</div>
-                                    <h3 className="text-white font-semibold mb-1">{item.name}</h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed">{item.description}</p>
+                                    <h3 className="text-zinc-100 font-semibold mb-1">{item.name}</h3>
+                                    <p className="text-zinc-500 text-sm leading-relaxed">{item.description}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -118,7 +118,7 @@ export default function About() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.3 }}
                         >
-                            <h4 className="text-sm font-mono text-blue-400 uppercase tracking-widest mb-4">Tech Stack</h4>
+                            <h4 className="text-sm font-mono text-orange-400 uppercase tracking-widest mb-4">Tech Stack</h4>
                             <div className="flex flex-wrap gap-2">
                                 {tools.map((tool, i) => (
                                     <motion.span
@@ -129,7 +129,7 @@ export default function About() {
                                         whileInView="visible"
                                         viewport={{ once: true }}
                                         whileHover={{ scale: 1.08, y: -2 }}
-                                        className="px-3 py-1.5 bg-white/5 backdrop-blur-sm rounded-xl text-sm text-gray-300 border border-white/10 hover:bg-white/10 hover:border-blue-400/40 hover:text-blue-300 transition-all duration-200 cursor-default flex items-center gap-1.5"
+                                        className="px-3 py-1.5 bg-zinc-800/60 backdrop-blur-sm rounded-xl text-sm text-zinc-300 border border-zinc-700/50 hover:bg-zinc-700/60 hover:border-orange-400/40 hover:text-orange-300 transition-all duration-200 cursor-default flex items-center gap-1.5"
                                     >
                                         <span>{tool.emoji}</span>
                                         {tool.name}

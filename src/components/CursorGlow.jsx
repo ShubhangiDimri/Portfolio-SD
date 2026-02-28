@@ -1,58 +1,50 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 
-const CursorGlow = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+export default function CursorGlow() {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+    const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
-    let rafId;
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePosition({ x: e.clientX, y: e.clientY })
+            if (!isVisible) setIsVisible(true)
+        }
 
-    const updateMousePosition = (e) => {
-      // Use requestAnimationFrame for smooth performance
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-      
-      rafId = requestAnimationFrame(() => {
-        setMousePosition({
-          x: e.clientX,
-          y: e.clientY
-        });
-      });
-    };
+        const handleMouseLeave = () => {
+            setIsVisible(false)
+        }
 
-    const handleMouseEnter = () => setIsVisible(true);
-    const handleMouseLeave = () => setIsVisible(false);
+        window.addEventListener('mousemove', handleMouseMove)
+        document.addEventListener('mouseleave', handleMouseLeave)
 
-    // Add event listeners
-    document.addEventListener('mousemove', updateMousePosition);
-    document.addEventListener('mouseenter', handleMouseEnter);
-    document.addEventListener('mouseleave', handleMouseLeave);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+            document.removeEventListener('mouseleave', handleMouseLeave)
+        }
+    }, [isVisible])
 
-    return () => {
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-      document.removeEventListener('mousemove', updateMousePosition);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-    };
-  }, []);
-
-  return (
-    <div
-      className={`fixed inset-0 pointer-events-none z-30 transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-      style={{
-        background: `radial-gradient(circle 600px at ${mousePosition.x}px ${mousePosition.y}px, 
-          rgba(59, 130, 246, 0.12) 0%, 
-          rgba(96, 165, 250, 0.06) 25%, 
-          rgba(255, 255, 255, 0.03) 50%, 
-          transparent 70%)`
-      }}
-    />
-  );
-};
-
-export default CursorGlow;
+    return (
+        <motion.div
+            className="pointer-events-none fixed inset-0 z-30 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isVisible ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+        >
+            <motion.div
+                className="absolute w-[600px] h-[600px] rounded-full"
+                style={{
+                    background: 'radial-gradient(circle, rgba(249, 115, 22, 0.08) 0%, rgba(251, 146, 60, 0.04) 30%, transparent 70%)',
+                    x: mousePosition.x - 300,
+                    y: mousePosition.y - 300,
+                }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 150,
+                    damping: 15,
+                    mass: 0.1,
+                }}
+            />
+        </motion.div>
+    )
+}

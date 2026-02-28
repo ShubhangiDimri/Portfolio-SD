@@ -40,7 +40,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className="relative w-full px-4 sm:px-6 md:px-8 lg:px-[8%] xl:px-[10%] py-16 sm:py-20 md:py-24 scroll-mt-20">
-            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-600/6 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-zinc-600/8 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-5xl mx-auto">
                 {/* Heading */}
@@ -53,8 +53,8 @@ export default function Contact() {
                 >
                     <p className="section-heading">Get in touch</p>
                     <div className="glow-line" />
-                    <h2 className="text-4xl sm:text-5xl font-bold text-white">Contact Me</h2>
-                    <p className="mt-4 text-gray-500 max-w-xl mx-auto">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-zinc-100">Contact Me</h2>
+                    <p className="mt-4 text-zinc-500 max-w-xl mx-auto">
                         Have a project in mind or just want to say hi? I&apos;d love to hear from you.
                     </p>
                 </motion.div>
@@ -77,14 +77,14 @@ export default function Contact() {
                                 whileHover={{ x: 6, scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-                                className="flex items-center gap-4 bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 hover:bg-white/10 hover:border-blue-400/40 hover:shadow-glow-blue transition-all duration-200 group btn-hover"
+                                className="flex items-center gap-4 bg-zinc-800/50 backdrop-blur-md rounded-2xl p-4 border border-zinc-700/50 hover:bg-zinc-700/60 hover:border-orange-400/40 hover:shadow-glow-orange transition-all duration-200 group btn-hover"
                             >
-                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-xl flex-shrink-0">
+                                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center text-xl flex-shrink-0">
                                     {info.icon}
                                 </div>
                                 <div>
-                                    <p className="text-xs text-gray-600 font-mono mb-0.5">{info.label}</p>
-                                    <p className="text-gray-300 text-sm group-hover:text-white transition-colors">{info.value}</p>
+                                    <p className="text-xs text-zinc-600 font-mono mb-0.5">{info.label}</p>
+                                    <p className="text-zinc-300 text-sm group-hover:text-white transition-colors">{info.value}</p>
                                 </div>
                             </motion.a>
                         ))}
@@ -97,38 +97,38 @@ export default function Contact() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.1 }}
                         onSubmit={handleSubmit}
-                        className="lg:col-span-3 bg-white/5 backdrop-blur-md rounded-2xl p-7 border border-white/10 space-y-5"
+                        className="lg:col-span-3 bg-zinc-800/50 backdrop-blur-md rounded-2xl p-7 border border-zinc-700/50 space-y-5"
                     >
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             <div>
-                                <label className="block text-xs font-mono text-gray-500 mb-1.5">Name</label>
+                                <label className="block text-xs font-mono text-zinc-500 mb-1.5">Name</label>
                                 <input
                                     type="text"
                                     name="name"
                                     required
                                     placeholder="Your name"
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-gray-200 placeholder-gray-600 focus:outline-none focus:border-blue-400/60 focus:bg-white/10 focus:shadow-glow-blue transition-all text-sm"
+                                    className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-700/50 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-orange-400/60 focus:bg-zinc-800/60 focus:shadow-glow-orange transition-all text-sm"
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-mono text-gray-500 mb-1.5">Email</label>
+                                <label className="block text-xs font-mono text-zinc-500 mb-1.5">Email</label>
                                 <input
                                     type="email"
                                     name="email"
                                     required
                                     placeholder="your@email.com"
-                                    className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-gray-200 placeholder-gray-600 focus:outline-none focus:border-blue-400/60 focus:bg-white/10 focus:shadow-glow-blue transition-all text-sm"
+                                    className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-700/50 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-orange-400/60 focus:bg-zinc-800/60 focus:shadow-glow-orange transition-all text-sm"
                                 />
                             </div>
                         </div>
                         <div>
-                            <label className="block text-xs font-mono text-gray-500 mb-1.5">Message</label>
+                            <label className="block text-xs font-mono text-zinc-500 mb-1.5">Message</label>
                             <textarea
                                 name="message"
                                 required
                                 rows={5}
                                 placeholder="Tell me about your project..."
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 text-gray-200 placeholder-gray-600 focus:outline-none focus:border-blue-400/60 focus:bg-white/10 focus:shadow-glow-blue transition-all text-sm resize-none"
+                                className="w-full px-4 py-3 rounded-xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-700/50 text-zinc-200 placeholder-zinc-600 focus:outline-none focus:border-orange-400/60 focus:bg-zinc-800/60 focus:shadow-glow-orange transition-all text-sm resize-none"
                             />
                         </div>
 
@@ -137,10 +137,10 @@ export default function Contact() {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             disabled={loading}
-                            className="w-full px-6 py-3.5 rounded-2xl font-semibold text-white btn-hover btn-gradient-border
-                                bg-white/10 backdrop-blur-md border border-white/20
-                                hover:bg-white/15 hover:border-blue-400/60 hover:shadow-glow-blue
-                                disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white/10
+                            className="w-full px-6 py-3.5 rounded-2xl font-semibold text-white btn-hover
+                                bg-zinc-800/80 backdrop-blur-md border border-zinc-700/60
+                                hover:bg-zinc-700/80 hover:border-orange-400/60 hover:shadow-glow-orange
+                                disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-zinc-800/80
                                 transition-all duration-200"
                         >
                             {loading ? 'Sending...' : 'Send Message'}
