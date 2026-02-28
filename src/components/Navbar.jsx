@@ -74,7 +74,7 @@ export default function Navbar() {
                 transition={{ duration: 0.6, ease: 'easeOut' }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
                     scrolled
-                        ? 'bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800/80 shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+                        ? 'glass-strong shadow-[0_8px_32px_rgba(0,0,0,0.5)]'
                         : 'bg-transparent'
                 }`}
             >
@@ -121,9 +121,10 @@ export default function Navbar() {
                                 <a
                                     href={link.href}
                                     onClick={(e) => handleNavClick(e, link.href)}
+                                    data-cursor="click"
                                     className={`text-sm transition-all duration-200 relative group px-4 py-2 block ${
                                         activeSection === link.href 
-                                            ? 'text-orange-400 font-medium' 
+                                            ? 'text-[#FF6B00] font-medium' 
                                             : 'text-zinc-400 hover:text-zinc-100'
                                     }`}
                                 >
@@ -131,7 +132,7 @@ export default function Navbar() {
                                     
                                     {/* Enhanced sliding underline */}
                                     <motion.span 
-                                        className="absolute -bottom-0.5 left-0 h-0.5 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400"
+                                        className="absolute -bottom-0.5 left-0 h-0.5 bg-gradient-to-r from-[#FF6B00] via-[#FF8C32] to-[#FF6B00]"
                                         initial={{ scaleX: 0, originX: 0.5 }}
                                         animate={{
                                             scaleX: hoveredLink === link.href || activeSection === link.href ? 1 : 0,
@@ -157,14 +158,13 @@ export default function Navbar() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.8 }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.97 }}
-                        className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-medium btn-hover
-                            bg-zinc-800/80 backdrop-blur-md border border-zinc-700/60
-                            text-zinc-100 hover:bg-zinc-700/80 hover:border-orange-400/50
-                            hover:shadow-glow-orange transition-all duration-200"
+                        data-cursor="click"
+                        className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-2xl text-sm font-medium btn-liquid-glass
+                            text-white shadow-lg shadow-[#FF6B00]/20"
                     >
-                        Hire Me
+                        <span className="relative z-10">Hire Me</span>
                     </motion.a>
 
                     {/* Mobile Hamburger */}
@@ -218,14 +218,15 @@ export default function Navbar() {
                                     damping: 25
                                 }}
                                 onClick={(e) => handleNavClick(e, link.href)}
+                                data-cursor="click"
                                 className={`text-lg py-3 border-b border-white/5 transition-all duration-200 relative ${
                                     activeSection === link.href 
-                                        ? 'text-orange-400 translate-x-2' 
+                                        ? 'text-[#FF6B00] translate-x-2' 
                                         : 'text-gray-300 hover:text-white hover:translate-x-2'
                                 }`}
                             >
                                 <span className={`text-sm font-mono mr-2 transition-colors ${
-                                    activeSection === link.href ? 'text-orange-500' : 'text-gray-500'
+                                    activeSection === link.href ? 'text-[#FF6B00]' : 'text-gray-500'
                                 }`}>
                                     0{i + 1}.
                                 </span>
@@ -233,7 +234,7 @@ export default function Navbar() {
                                 {activeSection === link.href && (
                                     <motion.span
                                         layoutId="activeMobile"
-                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-orange-400 to-orange-500 rounded-full"
+                                        className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-[#FF6B00] to-[#E55F00] rounded-full"
                                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                                     />
                                 )}

@@ -69,7 +69,7 @@ export default function About() {
                         transition={{ duration: 0.7 }}
                         className="w-full lg:w-2/5 flex justify-center"
                     >
-                    >                        <div className="relative p-4 bg-zinc-800/50 backdrop-blur-sm rounded-2xl border border-zinc-700/50">
+                        <div className="relative p-4 bg-zinc-800/50 backdrop-blur-sm rounded-2xl border border-zinc-700/50">
                             <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(113,113,122,0.15),_transparent_40%)] -z-10" />
                             <img
                                 src="/assets/shubh.jpeg"

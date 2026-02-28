@@ -44,10 +44,10 @@ export default {
                     750: '#1e222d',
                 },
                 accent: {
-                    orange: '#F97316',
-                    'orange-light': '#fb923c',
-                    'orange-soft': '#fdba74',
-                    'orange-deep': '#ea580c',
+                    orange: '#FF6B00',
+                    'orange-light': '#FF8C32',
+                    'orange-soft': '#FFB366',
+                    'orange-deep': '#E55F00',
                 },
                 muted: {
                     DEFAULT: '#71717a',
@@ -62,12 +62,13 @@ export default {
             },
             boxShadow: {
                 'glass': '0 4px 30px rgba(0, 0, 0, 0.5)',
-                'glow-orange': '0 0 30px rgba(249, 115, 22, 0.35)',
-                'glow-orange-light': '0 0 30px rgba(251, 146, 60, 0.3)',
-                'glow-orange-soft': '0 0 30px rgba(253, 186, 116, 0.25)',
+                'glow-orange': '0 0 30px rgba(255, 107, 0, 0.4)',
+                'glow-orange-light': '0 0 30px rgba(255, 140, 50, 0.35)',
+                'glow-orange-soft': '0 0 30px rgba(255, 179, 102, 0.3)',
                 'card': '0 8px 32px rgba(0, 0, 0, 0.4)',
                 'card-grey': '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(113, 113, 122, 0.1)',
                 'inner-grey': 'inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                'bento': '0 4px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
             },
             backdropBlur: {
                 xs: '2px',

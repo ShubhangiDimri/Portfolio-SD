@@ -8,78 +8,62 @@ const projects = [
         technologies: ['Python', 'HuggingFace', 'React'],
         description: 'AI-powered marine data analysis platform with real-time insights and predictive models for ocean conservation.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-600/20 to-orange-400/20',
-        border: 'hover:border-orange-500/30',
         number: '01',
-    },
-    {
-        name: 'Career Services Portal',
-        category: 'MERN Stack',
-        technologies: ['Node.js', 'MongoDB', 'React', 'Express'],
-        description: 'Full-stack internship portal connecting students with career opportunities, featuring job matching and application tracking.',
-        github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-500/20 to-orange-400/20',
-        border: 'hover:border-orange-500/30',
-        number: '02',
-    },
-    {
-        name: 'Flight Management System',
-        category: 'Full-Stack Application',
-        technologies: ['Java', 'MySQL', 'React'],
-        description: 'Comprehensive flight booking and management system with real-time availability, seat selection, and booking management.',
-        github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-400/15 to-orange-600/20',
-        border: 'hover:border-orange-500/30',
-        number: '03',
-    },
-    {
-        name: 'Women Community Hall',
-        category: 'Web Application',
-        technologies: ['React', 'Tailwind', 'Node.js'],
-        description: 'Community platform for women empowerment featuring event management, networking, and resource sharing.',
-        github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-500/15 to-orange-400/20',
-        border: 'hover:border-orange-500/30',
-        number: '04',
-    },
-    {
-        name: 'News-Bite',
-        category: 'Full-Stack Web App',
-        technologies: ['Node.js', 'React', 'API'],
-        description: 'Real-time news aggregation platform with AI-powered summarization and personalized content recommendations.',
-        github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-600/20 to-orange-500/20',
-        border: 'hover:border-orange-500/30',
-        number: '05',
     },
     {
         name: 'Digital Transaction Risk Analysis',
         category: 'AI/ML Application',
         technologies: ['Python', 'Machine Learning', 'React'],
-        description: 'Intelligent fraud detection system using machine learning algorithms to analyze and flag suspicious digital transactions.',
+        description: 'Intelligent fraud detection system using machine learning algorithms to analyze suspicious transactions.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-500/20 to-orange-600/15',
-        border: 'hover:border-orange-500/30',
-        number: '06',
+        number: '02',
     },
     {
-        name: 'Intelligent Queue Management',
-        category: 'Smart System',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        description: 'Smart queue management system with real-time tracking, predictive wait times, and automated notifications.',
+        name: 'Career Services Portal',
+        category: 'MERN Stack',
+        technologies: ['Node.js', 'MongoDB', 'React', 'Express'],
+        description: 'Full-stack internship portal connecting students with career opportunities and job matching.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-400/20 to-orange-500/15',
-        border: 'hover:border-orange-500/30',
-        number: '07',
+        number: '03',
+    },
+    {
+        name: 'Flight Management System',
+        category: 'Full-Stack Application',
+        technologies: ['Java', 'MySQL', 'React'],
+        description: 'Comprehensive flight booking and management system with real-time availability.',
+        github: 'https://github.com/ShubhangiDimri',
+        number: '04',
     },
     {
         name: 'Automated Knowledge Graph Pipeline',
         category: 'AI/ML System',
         technologies: ['Python', 'NLP', 'Graph Database'],
-        description: 'Automated pipeline for building knowledge graphs from unstructured data using NLP and entity extraction techniques.',
+        description: 'Automated pipeline for building knowledge graphs from unstructured data using NLP.',
         github: 'https://github.com/ShubhangiDimri',
-        gradient: 'from-orange-500/20 to-orange-400/20',
-        border: 'hover:border-orange-500/30',
+        number: '05',
+    },
+    {
+        name: 'Women Community Hall',
+        category: 'Web Application',
+        technologies: ['React', 'Tailwind', 'Node.js'],
+        description: 'Community platform for women empowerment featuring event management and networking.',
+        github: 'https://github.com/ShubhangiDimri',
+        number: '06',
+    },
+    {
+        name: 'News-Bite',
+        category: 'Full-Stack Web App',
+        technologies: ['Node.js', 'React', 'API'],
+        description: 'Real-time news aggregation platform with AI-powered summarization features.',
+        github: 'https://github.com/ShubhangiDimri',
+        number: '07',
+    },
+    {
+        name: 'Intelligent Queue Management',
+        category: 'Smart System',
+        technologies: ['React', 'Node.js', 'MongoDB'],
+        description: 'Smart queue management with real-time tracking and predictive wait times.',
+        github: 'https://github.com/ShubhangiDimri',
         number: '08',
     },
 ]
@@ -87,6 +71,13 @@ const projects = [
 export default function Projects() {
     return (
         <section id="work" className="relative w-full px-4 sm:px-6 md:px-8 lg:px-[8%] xl:px-[10%] py-16 sm:py-20 md:py-24 scroll-mt-20">
+            {/* Background gradient overlay */}
+            <div 
+                className="absolute inset-0 pointer-events-none" 
+                style={{
+                    background: 'radial-gradient(ellipse at top center, rgba(255, 107, 0, 0.05) 0%, transparent 50%)'
+                }}
+            />
             <div className="absolute top-0 left-1/2 w-96 h-96 bg-zinc-600/8 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-6xl mx-auto">
@@ -106,10 +97,14 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* Project Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                {/* Asymmetrical Bento Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, i) => (
-                        <ProjectCard key={project.name} project={project} index={i} />
+                        <ProjectCard 
+                            key={project.name} 
+                            project={project} 
+                            index={i}
+                        />
                     ))}
                 </div>
 
@@ -119,15 +114,21 @@ export default function Projects() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="text-center mt-12"
+                    className="text-center mt-14"
                 >
                     <motion.a
                         href="https://github.com/ShubhangiDimri"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-zinc-800/60 backdrop-blur-md border border-zinc-700/50 text-zinc-300 hover:bg-zinc-700/60 hover:text-white hover:border-orange-400/40 hover:shadow-glow-orange transition-all duration-200 text-sm font-medium btn-hover"
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.03)',
+                            backdropFilter: 'blur(10px)',
+                            borderRadius: '24px',
+                            border: '1px solid rgba(255, 107, 0, 0.2)',
+                        }}
+                        className="inline-flex items-center gap-2 px-7 py-3.5 text-zinc-300 hover:text-white hover:border-[#FF6B00]/40 hover:shadow-[0_0_30px_rgba(255,107,0,0.15)] transition-all duration-300 text-sm font-medium"
                     >
                         View all on GitHub
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

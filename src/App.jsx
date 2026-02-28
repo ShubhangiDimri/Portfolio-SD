@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
-import CursorGlow from './components/CursorGlow'
+import CustomCursor from './components/CustomCursor'
 
 // Page sections
 import Hero from './sections/Hero'
@@ -27,8 +27,8 @@ export default function App() {
     }, [])
 
     return (
-        <div className="min-h-screen bg-[#0f0f12] text-zinc-100 overflow-x-hidden">
-            <CursorGlow />
+        <div className="min-h-screen bg-[#121212] text-zinc-100 overflow-x-hidden">
+            <CustomCursor />
             <ScrollProgress />
             <Navbar />
             <Hero />

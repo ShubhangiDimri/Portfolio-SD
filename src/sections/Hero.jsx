@@ -82,9 +82,9 @@ export default function Hero() {
                         {/* Badge */}
                         <motion.div
                             variants={leftItem}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-zinc-800/60 backdrop-blur-md border border-zinc-700/50 text-sm text-zinc-300 font-mono"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl glass-badge text-sm text-zinc-200 font-mono"
                         >
-                            <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse shadow-glow-orange" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-[#FF6B00] animate-pulse shadow-[0_0_12px_rgba(255,107,0,0.6)]" />
                             Available for opportunities
                         </motion.div>
 
@@ -93,9 +93,9 @@ export default function Hero() {
                             <p className="text-zinc-500 text-lg mb-3 font-mono">
                                 Hi, I&apos;m
                             </p>
-                            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gradient mb-4 leading-tight">
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl heading-variable text-gradient mb-4 leading-tight cursor-default">
                                 Shubhangi <br />
-                                <span className="text-zinc-100">Dimri</span>
+                                <span className="text-zinc-100 heading-variable">Dimri</span>
                             </h1>
                         </motion.div>
 
@@ -118,15 +118,15 @@ export default function Hero() {
                         >
                             <motion.a
                                 href="#contact"
-                                whileHover={{ scale: 1.05 }}
+                                whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.97 }}
-                                className="group px-8 py-3.5 rounded-2xl font-semibold text-white btn-hover
-                                    bg-zinc-800/80 backdrop-blur-md border border-zinc-700/60
-                                    hover:bg-zinc-700/80 hover:border-orange-400/60 hover:shadow-glow-orange
-                                    transition-all duration-200 flex items-center gap-2"
+                                data-cursor="click"
+                                className="group px-8 py-3.5 rounded-2xl font-semibold text-white btn-liquid-glass
+                                    shadow-lg shadow-[#FF6B00]/20
+                                    flex items-center gap-2"
                             >
-                                Get in Touch
-                                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <span className="relative z-10">Get in Touch</span>
+                                <svg className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </motion.a>
@@ -134,6 +134,7 @@ export default function Hero() {
                                 href="#work"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.97 }}
+                                data-cursor="click"
                                 className="px-8 py-3.5 rounded-2xl font-semibold text-zinc-300 btn-hover
                                     bg-zinc-900/60 backdrop-blur-md border border-zinc-700/40
                                     hover:bg-zinc-800/70 hover:border-zinc-600 hover:text-white
@@ -143,23 +144,25 @@ export default function Hero() {
                             </motion.a>
                         </motion.div>
 
-                        {/* Stats */}
+                        {/* Bento Grid Stats */}
                         <motion.div
                             variants={leftItem}
-                            className="flex items-center gap-8 lg:gap-12 pt-8 border-t border-zinc-800"
+                            className="bento-grid grid-cols-3 pt-8"
                         >
                             {[
-                                { value: '3+', label: 'Projects Built' },
-                                { value: '4+', label: 'Technologies' },
-                                { value: '8.6', label: 'CGPA at UPES' },
-                            ].map((stat) => (
+                                { value: '3+', label: 'Projects Built', icon: '🚀' },
+                                { value: '4+', label: 'Technologies', icon: '⚡' },
+                                { value: '8.6', label: 'CGPA at UPES', icon: '🎓' },
+                            ].map((stat, index) => (
                                 <motion.div
                                     key={stat.label}
-                                    whileHover={{ scale: 1.1, y: -2 }}
-                                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                                    whileHover={{ scale: 1.05, y: -4 }}
+                                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                                    className="bento-item p-5 text-center cursor-default"
                                 >
+                                    <span className="text-2xl mb-2 block">{stat.icon}</span>
                                     <div className="text-2xl sm:text-3xl font-bold text-gradient">{stat.value}</div>
-                                    <div className="text-xs text-zinc-500 mt-1 font-mono">{stat.label}</div>
+                                    <div className="text-xs text-zinc-500 mt-1.5 font-mono leading-tight">{stat.label}</div>
                                 </motion.div>
                             ))}
                         </motion.div>
