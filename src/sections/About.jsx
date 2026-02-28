@@ -1,49 +1,33 @@
 import { motion } from 'framer-motion'
 
-const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: (i = 0) => ({
+const container = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.06 },
+    },
+}
+
+const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, delay: i * 0.1, ease: 'easeOut' },
-    }),
+        transition: { duration: 0.4, ease: 'easeOut' },
+    },
 }
 
 export default function About() {
-    const tools = [
-        { name: 'React', emoji: '⚛️' },
-        { name: 'Node.js', emoji: '🟢' },
-        { name: 'MongoDB', emoji: '🍃' },
-        { name: 'Express', emoji: '🚂' },
-        { name: 'Tailwind', emoji: '🎨' },
-        { name: 'MySQL', emoji: '🗄️' },
-        { name: 'HuggingFace', emoji: '🤗' },
-        { name: 'ShadCN/UI', emoji: '🧩' },
-        { name: 'Python', emoji: '🐍' },
-        { name: 'Git', emoji: '🔀' },
+    const skills = [
+        'Java', 'Python', 'C++', 'JavaScript', 'SQL',
+        'React', 'Node.js', 'Express', 'FastAPI', 'Tailwind CSS',
+        'AWS Bedrock', 'Agentic AI', 'RAG', 'LangChain', 'HuggingFace',
+        'MongoDB', 'MySQL', 'Neo4j', 'Redis', 'Vector DB',
+        'Docker', 'Git', 'Postman', 'REST APIs', 'HTML/CSS',
     ]
 
-    const stats = [
-        {
-            icon: '💻',
-            name: 'Languages',
-            description: 'C, C++, Java, JavaScript, Python',
-        },
-        {
-            icon: '🎓',
-            name: 'Education',
-            description: 'B.Tech CSE – UPES (CGPA: 8.6/10)',
-        },
-        {
-            icon: '🚀',
-            name: 'Projects',
-            description: '3+ full-stack & AI projects built',
-        },
-    ]
 
     return (
         <section id="about" className="relative w-full px-4 sm:px-6 md:px-8 lg:px-[8%] xl:px-[10%] py-16 sm:py-20 md:py-24 scroll-mt-20">
-            {/* Background glow */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-zinc-600/8 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="max-w-6xl mx-auto">
@@ -53,89 +37,117 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    className="text-center mb-14"
                 >
                     <p className="section-heading">Introduction</p>
                     <div className="glow-line" />
                     <h2 className="text-4xl sm:text-5xl font-bold text-zinc-100">About Me</h2>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-16 items-start">
-                    {/* Left – Image */}
+                {/* Main Content — Two Column */}
+                <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
+
+                    {/* Left — Photo + Quick Stats */}
                     <motion.div
-                        initial={{ opacity: 0, x: -40 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                        className="w-full lg:w-2/5 flex justify-center"
+                        transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+                        className="w-full lg:w-[38%] flex flex-col items-center gap-6"
                     >
-                        <div className="relative p-4 bg-zinc-800/50 backdrop-blur-sm rounded-2xl border border-zinc-700/50">
-                            <div className="absolute inset-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(113,113,122,0.15),_transparent_40%)] -z-10" />
-                            <img
-                                src="/assets/shubh.jpeg"
-                                alt="Shubhangi"
-                                className="relative w-64 sm:w-72 rounded-xl object-cover"
+                        {/* Photo */}
+                        <motion.div
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                            className="relative"
+                        >
+                            <div className="relative overflow-hidden rounded-2xl border-2 border-zinc-700/60 
+                                hover:border-[#FF6B00]/40 transition-all duration-500
+                                shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+                                <img
+                                    src="/assets/shubh.jpeg"
+                                    alt="Shubhangi Dimri"
+                                    className="w-56 sm:w-64 aspect-[3/4] object-cover object-top"
+                                />
+                                <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#121212] to-transparent" />
+                            </div>
+                            {/* Accent dot */}
+                            <motion.div
+                                animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                                className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#FF6B00]/25 border border-[#FF6B00]/40"
                             />
-                        </div>
-                    </motion.div>
+                        </motion.div>
 
-                    {/* Right – Content */}
-                    <div className="flex-1 space-y-8">
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                        {/* Education Card — below photo */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-zinc-400 leading-relaxed text-lg"
+                            transition={{ delay: 0.3 }}
+                            whileHover={{ y: -3, borderColor: 'rgba(255,107,0,0.4)' }}
+                            className="flex items-center gap-3 px-5 py-4 rounded-xl bg-zinc-800/40 border border-zinc-700/40
+                                transition-all duration-300 w-full max-w-[280px]"
                         >
-                            I&apos;m a Full Stack AI Engineer pursuing B.Tech in Computer Science at UPES, Dehradun. With a strong foundation in modern web technologies, I specialize in building scalable applications and implementing AI-driven solutions.
-                        </motion.p>
+                            <span className="text-2xl">🎓</span>
+                            <div>
+                                <p className="text-sm font-semibold text-zinc-200">B.Tech CSE — UPES</p>
+                                <p className="text-xs text-zinc-500">CGPA: 8.17/10 · Dehradun, India</p>
+                            </div>
+                        </motion.div>
+                    </motion.div>
 
-                        {/* Stat Cards */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                            {stats.map((item, i) => (
-                                <motion.div
-                                    key={item.name}
-                                    custom={i}
-                                    variants={fadeInUp}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    whileHover={{ y: -4, scale: 1.02 }}
-                                    className="bg-zinc-800/50 backdrop-blur-md rounded-2xl p-6 border border-zinc-700/50 hover:border-orange-400/40 hover:shadow-glow-orange transition-all duration-200 cursor-default"
-                                >
-                                    <div className="text-2xl mb-3">{item.icon}</div>
-                                    <h3 className="text-zinc-100 font-semibold mb-1">{item.name}</h3>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">{item.description}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Tools */}
+                    {/* Right — Bio + Skills */}
+                    <div className="flex-1 space-y-6">
+                        {/* Bio */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <h4 className="text-sm font-mono text-orange-400 uppercase tracking-widest mb-4">Tech Stack</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {tools.map((tool, i) => (
+                            <p className="text-zinc-400 leading-relaxed text-[17px]">
+                                I&apos;m a <span className="text-zinc-200 font-medium">Full Stack AI Engineer</span> pursuing B.Tech in Computer Science at <span className="text-zinc-200 font-medium">UPES, Dehradun</span>. With a strong foundation in modern web technologies, I specialize in building scalable applications and implementing AI-driven solutions.
+                            </p>
+                        </motion.div>
+
+
+                        {/* Skills Grid */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <h4 className="text-xs font-mono text-[#FF6B00] uppercase tracking-widest mb-3">
+                                Technical Skills
+                            </h4>
+                            <motion.div
+                                variants={container}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="flex flex-wrap gap-2"
+                            >
+                                {skills.map((skill) => (
                                     <motion.span
-                                        key={tool.name}
-                                        custom={i}
-                                        variants={fadeInUp}
-                                        initial="hidden"
-                                        whileInView="visible"
-                                        viewport={{ once: true }}
-                                        whileHover={{ scale: 1.08, y: -2 }}
-                                        className="px-3 py-1.5 bg-zinc-800/60 backdrop-blur-sm rounded-xl text-sm text-zinc-300 border border-zinc-700/50 hover:bg-zinc-700/60 hover:border-orange-400/40 hover:text-orange-300 transition-all duration-200 cursor-default flex items-center gap-1.5"
+                                        key={skill}
+                                        variants={fadeIn}
+                                        whileHover={{
+                                            y: -3,
+                                            scale: 1.05,
+                                            borderColor: 'rgba(255, 107, 0, 0.5)',
+                                            color: '#FF6B00',
+                                        }}
+                                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                                        className="px-3 py-1.5 text-xs font-medium text-zinc-400 
+                                            bg-zinc-800/50 rounded-lg border border-zinc-700/40
+                                            cursor-default transition-colors duration-200"
                                     >
-                                        <span>{tool.emoji}</span>
-                                        {tool.name}
+                                        {skill}
                                     </motion.span>
                                 ))}
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>

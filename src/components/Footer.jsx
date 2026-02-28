@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 export default function Footer() {
     const socials = [
         { label: 'GitHub', href: 'https://github.com/ShubhangiDimri' },
-        { label: 'LinkedIn', href: 'https://linkedin.com/in/shubhangidimri' },
-        { label: 'LeetCode', href: 'https://leetcode.com/u/shubhangidimri' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shubhangi-dimri-377b84299/' },
+        { label: 'LeetCode', href: 'https://leetcode.com/u/chaskaCHokirin22/' },
     ]
 
     return (

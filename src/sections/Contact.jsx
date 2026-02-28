@@ -21,8 +21,8 @@ export default function Contact() {
         {
             icon: '📧',
             label: 'Email',
-            value: 'shubhangidimiri26@gmail.com',
-            href: 'mailto:shubhangidimiri26@gmail.com',
+            value: 'shubhangidimri26@gmail.com',
+            href: 'mailto:shubhangidimri26@gmail.com',
         },
         {
             icon: '👨‍💻',
@@ -34,7 +34,7 @@ export default function Contact() {
             icon: '💼',
             label: 'LinkedIn',
             value: 'Connect with me',
-            href: 'https://linkedin.com/in/shubhangidimri',
+            href: 'https://www.linkedin.com/in/shubhangi-dimri-377b84299/',
         },
     ]
 
